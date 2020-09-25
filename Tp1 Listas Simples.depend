@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1601007000 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"Listas.h"
+	"Persona.h"
+	"Funtions.h"
+	"TDA_PILA.h"
+
+1600818878 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listasc.c
+	"Listas.h"
+	"Persona.h"
+	"Funtions.h"
+
+1600569468 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Persona.h"
+
+1600484014 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\persona.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1600745868 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\funtions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string.h>
+	"Listas.h"
+
+1600745929 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\funtions.c
+	<stdio.h>
+	<stdlib.h>
+	"Funtions.h"
+	"Listas.h"
+	"Persona.h"
+	"string.h"
+
+1600210327 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\persona.c
+	<stdio.h>
+	<stdlib.h>
+	"Persona.h"
+	"Listas.h"
+	"Funtions.h"
+
+1601007000 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\tda_pila.h
+	"Listas.h"
+	"Funtions.h"
+

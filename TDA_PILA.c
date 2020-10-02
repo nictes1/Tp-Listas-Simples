@@ -2,13 +2,13 @@
 
 
 ///Incio La pila
-void InicPila(Pila * pila)
+void InicPilaInt(Pila * pila) //bien
 {
     (*pila) = InicioLista();
 }
 
 ///Comprobacion de si tiene o no datos
-int pilavacia (Pila * pila)
+int pilavaciaInt(Pila * pila)  //bien
 {
     int flag = 1;
 
@@ -20,53 +20,51 @@ int pilavacia (Pila * pila)
 }
 
 ///Veo el tope de la Pila
-int topePila (Pila * pila)
+int topePilaInt(Pila * pila)  //
 {
    int rta = 0;
 
     if((*pila))
     {
-        tope = VerPrimero(*pila);
+        rta = VerPrimero(*pila);
     }
-
-    return tope;
+    return rta;
 }
 
-int desapilarPila(Pila * pila)
+int desapilarPilaInt(Pila * pila)
 {
     int rta;
 
     if((*pila))
     {
-       rta = VerPrimero;
-       *pila = DeleteFirstNode(*pila);
+       rta = VerPrimero(*pila);
+       *pila = eliminarPrimerNodo(*pila);
     }
 
     return rta;
 }
 
-void apilarPila(Pila * pila, nodo * dato)
+void apilarPilaInt(Pila * pila, int dato)
 {
-    *pila = AgregarPricipio((*pila),dato);
+    *pila = AgregarPricipio((*pila),CrearNodo(dato)); ///tira error porque la funcion 'crear' esta hecha con persona, esta bien pensado el algoritmos
 }
 
-void agregarPila(Pila * pila, int dato)
+void agregarPilaInt(Pila * pila, int dato)
 {
     nodo * aux = CrearNodo(dato)
     *pila = AgregarPricipio((*pila),aux);
 
 }
 
-void leerPila(Pila * pila)
+void leerPilaInt(Pila * pila)
 {
     int dato = 0;
     printf("Ingrese un dato: \n");
     scanf("%d", &dato);
-
-    apilar((*pila), dato);
+    apilar(pila, dato);
 }
 
-void MostrarPila(Pila * pila)
+void MostrarPilaInt(Pila * pila)
 {
    nodo * aux = (*pila);
    printf("\nTope");
@@ -75,7 +73,7 @@ void MostrarPila(Pila * pila)
        //printf("Dato: %d\n",aux->dato.edad);
        MostrarNodo(aux);
        aux=aux->siguiente;
-
+   }
    printf("Base\n");
 }
 

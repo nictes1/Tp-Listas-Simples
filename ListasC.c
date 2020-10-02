@@ -21,7 +21,11 @@ nodo *CrearNodo(persona dato)
     return aux;
 }
 
-nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo)
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+
+nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo)  //Probada
 {
     if (lista == NULL)
     {
@@ -36,33 +40,56 @@ nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo)
     return lista;
 }
 
-nodo * BuscarUltimoNodo (nodo *lista)
+nodo * AgregarPricipio2 (nodo * lista, nodo * nuevoNodo)
 {
-    nodo * seg = lista;
 
-    if(seg!=NULL)
-    {
-        while(seg->siguiente!=NULL)
-        {
-            seg = seg->siguiente;
-        }
-    }
-    return seg;
+    nuevoNodo->siguiente = lista;
+
+    return nuevoNodo;
 }
 
-nodo *BuscarNodoEspecifico (nodo * lista , char nombre[20])
+void AgregarPricipio3_PD(nodo ** lista, nodo * nuevo)
 {
-    nodo * seg = lista;
-
-    if(seg)
+    if(*lista)
     {
-        while(seg!=NULL && strcmp(nombre, seg->siguiente)!=0)
+        *lista=nuevo;
+    }else
+    {
+        nuevo->siguiente=*lista;
+        *lista=nuevo;
+    }
+}
+
+nodo * AgregarEnOrden (nodo * lista, nodo * nuevoNodo)
+{
+    if(!lista)
+    {
+        lista = nuevoNodo;
+    }
+    else
+    {
+        if(lista->dato.edad > nuevoNodo->dato.edad)
         {
-            seg = seg->siguiente;
+            lista = AgregarPricipio(lista, nuevoNodo);
+        }
+        else
+        {
+            nodo * seg = lista->siguiente;
+            nodo * ante = lista;
+
+            while(seg!=NULL && seg->dato.edad < nuevoNodo->dato.edad)
+            {
+                ante = seg;
+                seg = seg->siguiente;
+            }
+
+
+            ante->siguiente = nuevoNodo;
+            nuevoNodo->siguiente = seg;
+
         }
     }
-
-    return seg;
+    return lista;
 }
 
 nodo * AgregarFinal (nodo * lista, nodo * nuevonodo)
@@ -77,6 +104,69 @@ nodo * AgregarFinal (nodo * lista, nodo * nuevonodo)
        nodo * ultimo = BuscarUltimoNodo(lista);
        ultimo->siguiente = nuevonodo;
    }
+
+    return lista;
+}
+
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+nodo * BuscarUltimoNodo (nodo *lista)
+{
+    nodo * seg = lista;
+
+    if(seg)
+    {
+        while(seg->siguiente)
+        {
+            seg = seg->siguiente;
+        }
+    }
+    return seg;
+}
+
+nodo *BuscarNodoEspecifico (nodo * lista , char nombre[20])
+{
+    nodo * seg = lista;
+
+        while((seg) && (strcmp(nombre, seg->siguiente)!=0))
+        {
+            seg = seg->siguiente;
+        }
+
+    return seg;
+}
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+
+nodo * eliminarPrimerNodo (nodo * lista)
+{
+    nodo * aux;
+    nodo * siguiente;
+
+    if(lista)
+    {
+        aux = lista;
+        siguiente = lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+
+nodo * eliminarUltimoNodo(nodo * lista)
+{
+    nodo * anterior;
+    nodo * actual = lista;
+
+    while(actual->siguiente != NULL)
+    {
+        anterior = actual;
+        actual = actual->siguiente;
+    }
+
+    anterior->siguiente = NULL;
+    free(actual);
 
     return lista;
 }
@@ -111,34 +201,39 @@ nodo * EliminarNodoBuscado (nodo * lista, char nombre[20])
      return lista;
 }
 
-nodo * AgregarEnOrden (nodo * lista, nodo * nuevoNodo)
+nodo * EliminarNodosBuscados(nodo * lista, int EdadBuscada)
 {
-    if(lista == NULL)
-    {
-        lista = nuevoNodo;
-    }
-    else
-    {
-        if(lista->dato.edad > nuevoNodo->dato.edad)
-        {
-            lista = AgregarPricipio(lista, nuevoNodo);
-        }
-        else
-        {
-            nodo * seg = lista->siguiente;
-            nodo * ante = lista;
+    nodo * aux;
 
-            while(seg!=NULL && seg->dato.edad < nuevoNodo->dato.edad)
+    if(lista)
+    {
+        while (lista!=NULL && lista->dato.edad<EdadBuscada)
+        {
+            aux=lista;
+            lista=lista->siguiente;
+            free(aux);
+        }
+
+        nodo * ante=lista;
+        nodo * seg=lista->siguiente;
+
+        while(seg!=NULL)
+        {
+            if(seg->dato.edad<EdadBuscada)
             {
-                ante = seg;
-                seg = seg->siguiente;
+                aux=seg;
+                ante->siguiente=seg->siguiente;
+                seg=seg->siguiente;
+                free(aux);
+            }
+            else
+            {
+                ante=seg;
+                seg=seg->siguiente;
             }
 
-
-            ante->siguiente = nuevoNodo;
-            nuevoNodo->siguiente = seg;
-
         }
+
     }
     return lista;
 }
@@ -150,7 +245,7 @@ nodo * BorrarAllList (nodo * lista)
 
     seg = lista;
 
-    while (seg!=NULL)
+    while (seg)
     {
         proximo=seg->siguiente;
         free(seg);
@@ -158,6 +253,10 @@ nodo * BorrarAllList (nodo * lista)
     }
     return seg;
 }
+
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
+//************************************************************************************************************************************************
 
 nodo * SumarNodos (nodo * lista)
 {
@@ -173,53 +272,45 @@ nodo * SumarNodos (nodo * lista)
     return suma;
 }
 
-void MostrarNodo(nodo * aux)
+void MostrarNodo(nodo * aux)          ///bien
 {
+    printf("**************************\n");
     mostrarPersonas(aux->dato);
+    printf("\n**************************\n");
 }
 
-void MostrarLista(nodo * lista)
+void MostrarLista(nodo * lista)    ///bien
 {
     nodo * aux = lista;
 
-    while(aux != NULL)
+    while(aux)
     {
         MostrarNodo(aux);
         aux = aux->siguiente;
     }
 }
-
-nodo * eliminarPrimerNodo (nodo * lista)
+void MostrarListaP2(nodo ** lista)
 {
-    nodo * aux;
-    nodo * siguiente;
-
-    if(lista)
+    nodo * seg = *lista;
+    while (seg)
     {
-        aux = lista;
-        siguiente = lista->siguiente;
-        free(aux);
+        MostrarNodo(seg);
+        seg = seg->siguiente;
     }
-    return lista;
 }
 
-nodo * eliminarUltimoNodo(nodo * lista)
+int CantElementosLista(nodo* lista)
 {
-    nodo * anterior;
-    nodo * actual = lista;
+    nodo * seg = lista;
+    int cont = 0;
 
-    while(actual->siguiente != NULL)
+    while(seg)
     {
-        anterior = actual;
-        actual = actual->siguiente;
+        cont++;
+        seg = seg->siguiente;
     }
-
-    anterior->siguiente = NULL;
-    free(actual);
-
-    return lista;
+    return cont;
 }
-
 
 nodo * desvincularFirstNode (nodo ** lista)
 {
@@ -237,19 +328,48 @@ nodo * desvincularFirstNode (nodo ** lista)
     return aux;
 }
 
-int VerPrimero (nodo * lista)
+persona verPrimero(nodo* lista)
 {
-    int rta;
-
-    if(lista)
-    {
-        rta = lista->dato.edad;
-    }
-
-    return rta;
+    return lista->dato;
 }
 
+void CargaLista (nodo * lista, char rutaBin[])
+{
+    FILE * cach = fopen(rutaBin,"rb");
 
+    nodo * NuevoNodo;
+    persona datos;
+
+    char control;
+
+   if(cach!=NULL)
+   {
+    while(control=="s" || control=='S');
+    {
+        printf("\n Nombre: ");
+        fflush(stdin);
+        scanf("%s", datos.nombre);
+        printf("\n   Edad:");
+        scanf("%d", datos.nombre);
+
+        NuevoNodo = CrearNodo(datos);
+        lista = AgregarEnOrden(lista,NuevoNodo);
+
+        fwrite(lista,sizeof(nodo),1,cach);
+
+        printf("\n Desea seguir ingresando datos? [S|N]");
+        fflush(stdin);
+        scanf("%c", &control);
+
+    }
+    fclose(cach);
+   }
+    else
+    {
+        printf("\n Error de carga de datos");
+    }
+
+}
 
 
 

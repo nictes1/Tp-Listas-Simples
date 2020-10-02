@@ -26,12 +26,9 @@ int main()
      nodo * listaInvertida = InicioLista();
 
     Pila pilita;
-    pilita = InicPila();
-    apilar(&pilita,456);
-    apilar(&pilita,123);
-    apilar(&pilita,356);
-    apilar(&pilita,234);
-    most
+    inicPila(&pilita);
+    apilarPersona(&pilita,datos);
+    mostrarPila(&pilita);
 
 
 

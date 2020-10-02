@@ -9,7 +9,6 @@
 
 
 //Cargar una lista con datos provenientes de un archivo
-
 void cargarArchivo (char ruta[],persona persona)
 {
     FILE * buffer = fopen(ruta, "ab");
@@ -40,6 +39,21 @@ void cargarArchivo (char ruta[],persona persona)
     }
 }
 
+nodo* archivo_A_lista(char ruta[], nodo* lista)
+{
+    FILE * buffer = fopen(ruta, "rb");
+    persona perso;
+
+    if(buffer)
+    {
+        while(fread(&perso, sizeof(persona), 1, buffer)>0)
+        {
+            lista=AgregarEnOrden(lista, CrearNodo(perso));
+        }
+        fclose(buffer);
+    }
+    return lista;
+}
 
 nodo * subprogramaIngresaPersonaEnListaOrden(nodo * lista, persona p)
 {
@@ -73,7 +87,7 @@ nodo * subprogramaIngresaPersonaEnListaPPio(nodo * lista, persona p)
 
 nodo * cargarListaDesdeArchivo_Ppio(char Ruta[], nodo * lista)
 {
-    FILE * buffer  = fopen(Ruta, "ab");
+    FILE * buffer  = fopen(Ruta, "rb");
     persona aux;
 
     if(buffer!=NULL)
@@ -244,7 +258,7 @@ nodo * EliminarNodosEspecificos (nodo * lista, int buscar)
         }
          while(siguiente != NULL)
         {
-            if(siguiente->dato.edad < BuscarNodoEspecifico)
+            if(siguiente->dato.edad < buscar)
             {
                 aux = siguiente;
                 anterior->siguiente = siguiente->siguiente;
@@ -262,9 +276,6 @@ nodo * EliminarNodosEspecificos (nodo * lista, int buscar)
     }
     return lista;
 }
-
-
-
 
 ///mostrar contenido de archivo
 void MostarArchivo (char ruta[])
@@ -287,6 +298,29 @@ void MostarArchivo (char ruta[])
         printf("\n Error en la lectura de datos. ");
     }
 }
+
+
+/// ESTA FUNCION ES NECESARIA INCLUIR ADENTRO DE UNA QUE SE LE PASE POR APRAMETROS EL DATO Y LA RUTA DE
+/*int buscaDatoArchi(char dato[], char ruta[)
+{
+    int flag = 0;
+    persona perso;
+
+    FILE * buffer = fopen(ruta,"rb");
+
+    if(buffer)
+    {
+        while(fread(&perso,sizeof(persona),1,buffer)>0 && flag==0)
+        {
+            if(strcmp(perso.nombre, dato)==0)
+            {
+                flag = 1;
+            }
+        }
+        fclose(buffer);
+    }
+    return flag;
+}*/
 
 
 

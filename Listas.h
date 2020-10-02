@@ -18,18 +18,22 @@ typedef struct _nodo
 nodo *InicioLista ();
 nodo *CrearNodo(persona dato);
 nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo);
-nodo *BuscarUltimoNodo (nodo *lista);
-nodo *BuscarNodoEspecifico (nodo * lista , char nombre[20]);
-nodo * AgregarFinal (nodo * lista, nodo * nuevonodo);
-nodo * EliminarNodoBuscado (nodo * lista, char nombre[20]);
+nodo * AgregarPricipio2 (nodo * lista, nodo * nuevoNodo);
+void AgregarPricipio3_PD(nodo ** lista, nodo * nuevo);
 nodo * AgregarEnOrden (nodo * lista, nodo * nuevoNodo);
+nodo * AgregarFinal (nodo * lista, nodo * nuevonodo);
+nodo * BuscarUltimoNodo (nodo *lista);
+nodo * eliminarPrimerNodo (nodo * lista);
+nodo * eliminarUltimoNodo(nodo * lista);
+nodo * EliminarNodoBuscado (nodo * lista, char nombre[20]);
+nodo * EliminarNodosBuscados(nodo * lista, int EdadBuscada);
 nodo * BorrarAllList (nodo * lista);
 nodo * SumarNodos (nodo * lista);
 void MostrarNodo(nodo * aux);
 void MostrarLista(nodo * lista);
-nodo * eliminarPrimerNodo (nodo * lista);
-nodo * eliminarUltimoNodo(nodo * lista);
-nodo * desvincularFirstNode (nodo **lista);
-void VerPrimero (nodo * lista);
-
+void MostrarListaP2(nodo ** lista);
+int CantElementosLista(nodo* lista);
+nodo * desvincularFirstNode (nodo ** lista);
+persona verPrimero(nodo* lista);
+void CargaLista (nodo * lista, char rutaBin[]);
 #endif // LISTAS_H_INCLUDED

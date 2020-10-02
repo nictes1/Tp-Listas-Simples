@@ -6,12 +6,13 @@
 
 #define Pila nodo *
 
-void MostrarPila(Pila * pila);
-void agregarPila (Pila * pila);
-void apilarPila(Pila * pila, nodo * dato);
-Pila desapilarPila(Pila * pila);
-Pila topePila (Pila * pila);
-Pila pilavacia (Pila * pila);
-void InicPila(Pila * pila);
+void InicPilaInt(Pila * pila);
+int pilavaciaInt(Pila * pila);
+int topePilaInt(Pila * pila);
+int desapilarPilaInt(Pila * pila);
+void apilarPilaIntInt(Pila * pila, nodo * dato);
+void agregarPilaInt(Pila * pila, int dato);
+void leerPilaInt(Pila * pila);
+void MostrarPilaInt(Pila * pila);
 
 #endif // TDA_PILA_H_INCLUDED

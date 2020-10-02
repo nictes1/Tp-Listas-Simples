@@ -5,12 +5,12 @@
 
 #define Pila nodo*
 
-void inicpila(Pila * p);
+void inicPila(Pila* p);
 int pilaVaciaPersona(Pila * p);
-void apilarPersona(Pila* p, persona pers);
+void apilarPersona(Pila * p, persona perso);
 persona desapilarPersona(Pila * p);
+void MostrarPila(Pila * p);
+void Agregar(Pila * p);
 persona topePersona(Pila * p);
-void mostrarPila(Pila * p);
-void leerPila(Pila * p);
 
 #endif // PILAS_H_INCLUDED

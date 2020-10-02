@@ -25,7 +25,7 @@ nodo *CrearNodo(persona dato)
 //************************************************************************************************************************************************
 //************************************************************************************************************************************************
 
-nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo)  //Probada
+nodo *AgregarPricipio (nodo *lista, nodo *nuevo_nodo)
 {
     if (lista == NULL)
     {
@@ -142,15 +142,11 @@ nodo *BuscarNodoEspecifico (nodo * lista , char nombre[20])
 
 nodo * eliminarPrimerNodo (nodo * lista)
 {
-    nodo * aux;
-    nodo * siguiente;
+    nodo * aux = lista;
 
-    if(lista)
-    {
-        aux = lista;
-        siguiente = lista->siguiente;
-        free(aux);
-    }
+    lista = lista->siguiente;
+    free(aux);
+
     return lista;
 }
 
@@ -159,7 +155,7 @@ nodo * eliminarUltimoNodo(nodo * lista)
     nodo * anterior;
     nodo * actual = lista;
 
-    while(actual->siguiente != NULL)
+    while(actual->siguiente)
     {
         anterior = actual;
         actual = actual->siguiente;
@@ -272,14 +268,14 @@ nodo * SumarNodos (nodo * lista)
     return suma;
 }
 
-void MostrarNodo(nodo * aux)          ///bien
+void MostrarNodo(nodo * aux)
 {
     printf("**************************\n");
     mostrarPersonas(aux->dato);
-    printf("\n**************************\n");
+    printf("\n************************\n");
 }
 
-void MostrarLista(nodo * lista)    ///bien
+void MostrarLista(nodo * lista)
 {
     nodo * aux = lista;
 
@@ -328,45 +324,44 @@ nodo * desvincularFirstNode (nodo ** lista)
     return aux;
 }
 
-persona verPrimero(nodo* lista)
+persona verPrimero(nodo * lista)
 {
     return lista->dato;
 }
 
-void CargaLista (nodo * lista, char rutaBin[])
+void CargaLista_x_Archivo (nodo * lista, char rutaBin[])
 {
-    FILE * cach = fopen(rutaBin,"rb");
+    FILE * buffer = fopen(rutaBin,"rb");
 
     nodo * NuevoNodo;
     persona datos;
 
     char control;
 
-   if(cach!=NULL)
-   {
-    while(control=="s" || control=='S');
+    if(buffer)
     {
-        printf("\n Nombre: ");
-        fflush(stdin);
-        scanf("%s", datos.nombre);
-        printf("\n   Edad:");
-        scanf("%d", datos.nombre);
+        while(control=="s" || control=='S');
+        {
+            printf("\n Nombre: ");
+            fflush(stdin);
+            gets(datos.nombre);
+            printf("\n   Edad: ");
+            scanf("%d", datos.nombre);
 
-        NuevoNodo = CrearNodo(datos);
-        lista = AgregarEnOrden(lista,NuevoNodo);
+            NuevoNodo = CrearNodo(datos);
+            lista = AgregarEnOrden(lista,NuevoNodo);
 
-        fwrite(lista,sizeof(nodo),1,cach);
+            fwrite(lista,sizeof(nodo),1,buffer);
 
-        printf("\n Desea seguir ingresando datos? [S|N]");
-        fflush(stdin);
-        scanf("%c", &control);
-
+            printf("\n Desea seguir ingresando datos? [S|N]");
+            fflush(stdin);
+            gets(control);
+        }
+        fclose(buffer);
     }
-    fclose(cach);
-   }
     else
     {
-        printf("\n Error de carga de datos");
+        printf("\n Error, sos malo programando... ");
     }
 
 }

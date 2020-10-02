@@ -20,7 +20,7 @@ int pilavaciaInt(Pila * pila)  //bien
 }
 
 ///Veo el tope de la Pila
-int topePilaInt(Pila * pila)  //
+/*int topePilaInt(Pila * pila)  //
 {
    int rta = 0;
 
@@ -29,9 +29,9 @@ int topePilaInt(Pila * pila)  //
         rta = VerPrimero(*pila);
     }
     return rta;
-}
+}*/
 
-int desapilarPilaInt(Pila * pila)
+/*int desapilarPilaInt(Pila * pila)
 {
     int rta;
 
@@ -42,27 +42,27 @@ int desapilarPilaInt(Pila * pila)
     }
 
     return rta;
-}
+}*/
 
-void apilarPilaInt(Pila * pila, int dato)
+/*void apilarPilaInt(Pila * pila, int dato)
 {
     *pila = AgregarPricipio((*pila),CrearNodo(dato)); ///tira error porque la funcion 'crear' esta hecha con persona, esta bien pensado el algoritmos
-}
+}*/
 
-void agregarPilaInt(Pila * pila, int dato)
+/*void agregarPilaInt(Pila * pila, int dato)
 {
     nodo * aux = CrearNodo(dato)
     *pila = AgregarPricipio((*pila),aux);
 
-}
+}*/
 
-void leerPilaInt(Pila * pila)
+/*void leerPilaInt(Pila * pila)
 {
     int dato = 0;
     printf("Ingrese un dato: \n");
     scanf("%d", &dato);
     apilar(pila, dato);
-}
+}*/
 
 void MostrarPilaInt(Pila * pila)
 {

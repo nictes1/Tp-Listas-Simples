@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1601598839 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\main.c
+1601661561 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\main.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -8,12 +8,12 @@
 	"Funtions.h"
 	"TDA_PILA.h"
 
-1601602427 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listasc.c
+1601662893 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listasc.c
 	"Listas.h"
 	"Persona.h"
 	"Funtions.h"
 
-1601602426 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listas.h
+1601612794 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\listas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,7 +31,7 @@
 	<string.h>
 	"Listas.h"
 
-1601602614 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\funtions.c
+1601662648 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\funtions.c
 	<stdio.h>
 	<stdlib.h>
 	"Funtions.h"
@@ -50,10 +50,13 @@
 	"Listas.h"
 	"Funtions.h"
 
-1601602551 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\pilas2.c
+1601662893 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\pilas2.c
 	"pilas2.h"
 
-1601598924 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\pilas2.h
+1601612958 n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\pilas2.h
 	"listas.h"
 	"PERSONA.h"
+
+1601613127 source:n:\nico\programacion\segundo cuatrimestre\laboratorio y programacion 2\trabajos practicos\trabajos practicos\tp1 listas simples\tda_pila.c
+	"TDA_PILA.h"
 

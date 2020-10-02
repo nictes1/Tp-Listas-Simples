@@ -6,6 +6,7 @@
 #include "Persona.h"
 #include "Funtions.h"
 #include "TDA_PILA.h"
+#include "pilas2.h"
 
 
 int main()
@@ -15,7 +16,11 @@ int main()
      char RutaArchivoOrden[]={"ListOrden.bin"}; ///LISTA 1
      char RutaArchivoPrip[]={"ListPPio.bin"}; ///Lista 2
 
-     persona datos;
+    persona per1={"nicolas", 20};
+    persona per2={"martina", 21};
+    persona per3={"josefina", 12};
+    persona per4={"agusto", 29};
+
 
      char control;
 
@@ -26,10 +31,21 @@ int main()
      nodo * listaInvertida = InicioLista();
 
     Pila pilita;
+    Pila aux;
+    inicPila(&aux);
     inicPila(&pilita);
-    apilarPersona(&pilita,datos);
-    mostrarPila(&pilita);
+    apilarPersona(&pilita,per1);
+    apilarPersona(&pilita,per2);
+    apilarPersona(&pilita,per3);
+    apilarPersona(&pilita,per4);
 
+    MostrarListaP2(&pilita);
+    printf("\n--------------------------------\n");
+    desapilarPersona(&pilita);
+    printf("\n--------------------------------\n");
+    MostrarListaP2(&pilita);
+    printf("\n--------------------------------\n");
+    MostrarListaP2(topePersona(&pilita));
 
 
 

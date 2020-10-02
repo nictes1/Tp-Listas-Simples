@@ -35,5 +35,5 @@ void MostrarListaP2(nodo ** lista);
 int CantElementosLista(nodo* lista);
 nodo * desvincularFirstNode (nodo ** lista);
 persona verPrimero(nodo* lista);
-void CargaLista (nodo * lista, char rutaBin[]);
+void CargaLista_x_Archivo (nodo * lista, char rutaBin[]);
 #endif // LISTAS_H_INCLUDED

@@ -119,7 +119,6 @@ int buscarNodo_simple_xNmbre(nodo * lista, char buscar[])
 }
 
 // buscar nodo por edad.
-
 int buscarNodo_simple_xEdad (nodo * lista, int buscar)
 {
     int flag = 1;
@@ -300,7 +299,7 @@ void MostarArchivo (char ruta[])
 }
 
 
-/// ESTA FUNCION ES NECESARIA INCLUIR ADENTRO DE UNA QUE SE LE PASE POR APRAMETROS EL DATO Y LA RUTA DE
+
 /*int buscaDatoArchi(char dato[], char ruta[)
 {
     int flag = 0;

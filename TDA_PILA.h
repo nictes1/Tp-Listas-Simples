@@ -6,10 +6,10 @@
 
 #define Pila nodo *
 
-void Mostrar(Pila * pila);
-void agregar (Pila * pila);
-void apilar(Pila * pila, nodo * dato);
-Pila desapilar(Pila * pila);
+void MostrarPila(Pila * pila);
+void agregarPila (Pila * pila);
+void apilarPila(Pila * pila, nodo * dato);
+Pila desapilarPila(Pila * pila);
 Pila topePila (Pila * pila);
 Pila pilavacia (Pila * pila);
 void InicPila(Pila * pila);

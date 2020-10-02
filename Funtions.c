@@ -73,7 +73,7 @@ nodo * subprogramaIngresaPersonaEnListaPPio(nodo * lista, persona p)
 
 nodo * cargarListaDesdeArchivo_Ppio(char Ruta[], nodo * lista)
 {
-    FILE * buffer  =fopen(Ruta, "rb");
+    FILE * buffer  = fopen(Ruta, "ab");
     persona aux;
 
     if(buffer!=NULL)

@@ -189,7 +189,7 @@ void MostrarLista(nodo * lista)
     }
 }
 
-nodo * DeleteFirstNode (nodo * lista)
+nodo * eliminarPrimerNodo (nodo * lista)
 {
     nodo * aux;
     nodo * siguiente;
@@ -221,25 +221,32 @@ nodo * eliminarUltimoNodo(nodo * lista)
 }
 
 
-nodo * desvincularFirstNode (nodo **lista)
+nodo * desvincularFirstNode (nodo ** lista)
 {
-    nodo * aux = *lista;
+    nodo * aux = NULL;
 
     if(*lista)
     {
+        aux = (*lista);
+
         *lista = (*lista)->siguiente;
+
         aux->siguiente = NULL;
     }
 
     return aux;
 }
 
-void See_first(nodo * lista)
+int VerPrimero (nodo * lista)
 {
+    int rta;
+
     if(lista)
     {
-        MostrarNodo(lista);
+        rta = lista->dato.edad;
     }
+
+    return rta;
 }
 
 

@@ -4,67 +4,79 @@
 ///Incio La pila
 void InicPila(Pila * pila)
 {
-    (*pila) = InicioLista;
+    (*pila) = InicioLista();
 }
 
 ///Comprobacion de si tiene o no datos
-Pila pilavacia (Pila * pila)
+int pilavacia (Pila * pila)
 {
-    int flag=0;
+    int flag = 1;
 
     if(!(*pila))
     {
-        flag = 1;
+        flag = 0;
     }
-
     return flag;
 }
 
 ///Veo el tope de la Pila
-Pila topePila (Pila * pila)
+int topePila (Pila * pila)
 {
-    nodo * tope;
+   int rta = 0;
 
     if((*pila))
     {
-        tope = See_first(*pila);
+        tope = VerPrimero(*pila);
     }
 
     return tope;
 }
 
-Pila desapilar(Pila * pila)
+int desapilarPila(Pila * pila)
 {
-    nodo * aux;
+    int rta;
 
     if((*pila))
     {
-       nodo * aux = (*pila);
+       rta = VerPrimero;
        *pila = DeleteFirstNode(*pila);
     }
 
-    return aux;
+    return rta;
 }
 
-void apilar(Pila * pila, nodo * dato)
+void apilarPila(Pila * pila, nodo * dato)
 {
     *pila = AgregarPricipio((*pila),dato);
 }
 
-void agregar (Pila * pila)
+void agregarPila(Pila * pila, int dato)
 {
-    nodo * NewDate = subprogramaIngresaPersonaEnListaPPio;
-    *pila = AgregarPricipio((*pila),NewDate);
+    nodo * aux = CrearNodo(dato)
+    *pila = AgregarPricipio((*pila),aux);
+
 }
 
-void Mostrar(Pila * pila)
+void leerPila(Pila * pila)
 {
-    if((*pila))
-    {
-        printf("---Tope---\n");
-        MostrarLista(*pila);
-        printf("---Base---\n");
-    }
+    int dato = 0;
+    printf("Ingrese un dato: \n");
+    scanf("%d", &dato);
+
+    apilar((*pila), dato);
+}
+
+void MostrarPila(Pila * pila)
+{
+   nodo * aux = (*pila);
+   printf("\nTope");
+   while(aux)
+   {
+       //printf("Dato: %d\n",aux->dato.edad);
+       MostrarNodo(aux);
+       aux=aux->siguiente;
+
+   printf("Base\n");
 }
 
 

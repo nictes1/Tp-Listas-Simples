@@ -25,6 +25,14 @@ int main()
      nodo * listaIntercalada = InicioLista();
      nodo * listaInvertida = InicioLista();
 
+    Pila pilita;
+    pilita = InicPila();
+    apilar(&pilita,456);
+    apilar(&pilita,123);
+    apilar(&pilita,356);
+    apilar(&pilita,234);
+    most
+
 
 
 

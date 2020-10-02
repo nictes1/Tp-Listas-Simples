@@ -27,8 +27,9 @@ nodo * BorrarAllList (nodo * lista);
 nodo * SumarNodos (nodo * lista);
 void MostrarNodo(nodo * aux);
 void MostrarLista(nodo * lista);
-nodo * DeleteFirstNode (nodo * lista);
+nodo * eliminarPrimerNodo (nodo * lista);
 nodo * eliminarUltimoNodo(nodo * lista);
 nodo * desvincularFirstNode (nodo **lista);
+void VerPrimero (nodo * lista);
 
 #endif // LISTAS_H_INCLUDED

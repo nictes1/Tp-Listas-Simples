@@ -102,7 +102,6 @@ nodo * cargarListaDesdeArchivo_Ppio(char Ruta[], nodo * lista)
 }
 
 //3 buscar nodo por nombre.
-
 int buscarNodo_simple_xNmbre(nodo * lista, char buscar[])
 {
     int flag=1;
